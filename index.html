@@ -17,18 +17,20 @@
         </table>
     </header>
 
-    <!-- main content-->
-    <table class="content">
-        <tr>
+    <main>
+        <table class="content">
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </main>
 
-        </tr>
-    </table>
 
 
     <footer>
         <table>
             <tr>
-                <td> <a href="#"><img src="assets/GitHub-Mark-Light-32px.png" alt="link to GitHub project"></a></td>
+                <td> <a href="https://github.com/Afomin01/web-Lab1"><img src="assets/GitHub-Mark-Light-32px.png" alt="link to GitHub project"></a></td>
             </tr>
             <tr>
                 <td>Copyright © Artem Bakin 2020. All rights reserved (I suppose so).</td>
@@ -38,10 +40,14 @@
 </body>
 
 <style>
+    html, body{
+        height: 100%;
+    }
     body{
         font-family: Roboto;
         margin: 0;
-        
+        display: flex;
+        flex-direction: column;
     }
     table{
         width: 100%;
@@ -53,16 +59,19 @@
         color: white;
         font-size: x-large;
         border-collapse: collapse;
-        padding: 5px;
+        padding: 10px;
     }
     footer{
         background: midnightblue;
-        padding: 5px;
+        padding: 10px;
         text-align: center;
         color: white;
         font-size: medium;
         font-style: italic;
-        min-height: 60px;
+        flex-shrink: 0;
+    }
+    main{
+        flex: 1 0 auto;
     }
     #header-right{
         text-align: right;
@@ -76,9 +85,6 @@
         text-align: center;
         color: crimson;
         width: 50%;
-    }
-    .content{
-        min-height: calc(100vh - 60px - 89px);
     }
 </style>
 </html>
