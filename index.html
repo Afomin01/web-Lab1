@@ -21,20 +21,20 @@
     <main>
         <table>
             <tr>
-                <td align="center">
+                <td>
                     <svg width="350" height="350" xmlns="http://www.w3.org/2000/svg" class="svg-coordinates">
                         <polygon points="175,175 175,245 315,175" class="coordinates-figure"/>
                         <path d="M175 175 35 175 A140 140 0 0 0 175 315z" class="coordinates-figure"></path>
                         <polygon points="175,175 175,35 245,35 245,175 " class="coordinates-figure"/>
                                                 
-                        <line x1="0" y1="175" x2="345" y2="175" class="coordinate-line"/>
-                        <line x1="175" y1="5" x2="175" y2="350" class="coordinate-line"/>
+                        <line x1="0" y1="175" x2="345" y2="175" class="coordinate-axis"/>
+                        <line x1="175" y1="350" x2="175" y2="5" class="coordinate-axis"/>
 
-                        <polygon points="350,175 335,170 335,180"/>
-                        <polygon points="175,0 180,15 170,15"/>
+                        <polygon points="350,175 335,170 335,180" class="coordinates-arrow"/>
+                        <polygon points="175,0 180,15 170,15" class="coordinates-arrow"/>
 
-                        <text x="182" y="11" class="graph-text">y</text>
-                        <text x="335" y="167" class="graph-text">x</text>
+                        <text x="182" y="11" class="coordinates-text">y</text>
+                        <text x="335" y="167" class="coordinates-text">x</text>
 
                         <line x1="171" y1="35" x2="179" y2="35" class="coordinates-marker"/>
                         <line x1="171" y1="105" x2="179" y2="105" class="coordinates-marker"/>
@@ -46,17 +46,113 @@
                         <line y1="171" x1="245" y2="179" x2="245" class="coordinates-marker"/>
                         <line y1="171" x1="315" y2="179" x2="315" class="coordinates-marker"/>
 
-                        <text x="180" y="40" class="graph-text">R</text>
-                        <text x="180" y="110" class="graph-text">R/2</text>
-                        <text x="180" y="250" class="graph-text">−R/2</text>
-                        <text x="180" y="320" class="graph-text">−R</text>
+                        <text x="180" y="40" class="coordinates-text">R</text>
+                        <text x="180" y="110" class="coordinates-text">R/2</text>
+                        <text x="180" y="250" class="coordinates-text">−R/2</text>
+                        <text x="180" y="320" class="coordinates-text">−R</text>
 
-                        <text x="20" y="167" class="graph-text">−R</text>
-                        <text x="85" y="167" class="graph-text">−R/2</text>
-                        <text x="235" y="167" class="graph-text">R/2</text>
-                        <text x="310" y="167" class="graph-text">R</text>
+                        <text x="20" y="167" class="coordinates-text">−R</text>
+                        <text x="85" y="167" class="coordinates-text">−R/2</text>
+                        <text x="235" y="167" class="coordinates-text">R/2</text>
+                        <text x="310" y="167" class="coordinates-text">R</text>
 
+                        <circle cx="-5" cy="-5" r="4" id="coordinates-circle" />
                     </svg>
+                </td>
+                <td>
+                    <form>
+                        <table class="input-table">
+                            <tr>
+                                <td colspan="2">X value:</td>
+                            </tr>
+                            <tr class="input-tr">
+                                <td colspan="2"><input placeholder="X value" type="text" name="xTextField" class="text-field"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Y value:</td>
+                            </tr>
+                            <tr class="input-tr">
+                                <td colspan="2">
+                                    <table class="y-form-table">
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="-3">
+                                                <label for="-3">-3</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="-2">
+                                                <label for="-2">-2</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="-1">
+                                                <label for="-1">-1</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="0">
+                                                <label for="0">&nbsp0</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="1">
+                                                <label for="1">&nbsp1</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="2">
+                                                <label for="2">&nbsp2</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="3">
+                                                <label for="3">&nbsp3</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="4">
+                                                <label for="4">&nbsp4</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="5">
+                                                <label for="5">&nbsp5</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">R value:</td>
+                            </tr>
+                            <tr class="input-tr">
+                                <td colspan="2">
+                                    <select name="rComboBox" class="combo-box">
+                                        <option>1</option>
+                                        <option>1.5</option>
+                                        <option>2</option>
+                                        <option>2.5</option>
+                                        <option>3</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button type="submit" class="button">Отправить</button></td>
+                                <td><button type="button" class="button">Очистить</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table class="result-table">
+                        <tr>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>R</th>
+                            <th>Current time</th>
+                            <th>Execution time</th>
+                            <th>Result</th>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -77,14 +173,20 @@
 </body>
 
 <style>
+    :root{
+        --chekbox-checked: #00a109;
+        --chekbox-uncheck: #ff0000;
+    }
     html, body{
         height: 100%;
     }
     body{
         font-family: Roboto;
+        color: white;
         margin: 0;
         display: flex;
         flex-direction: column;
+        background: #212121;
     }
     table{
         width: 100%;
@@ -92,14 +194,14 @@
         border-spacing: 0;
     }
     header{
-        background: midnightblue;
+        background: #131313;
         color: white;
         font-size: x-large;
         border-collapse: collapse;
         padding: 15px;
     }
     footer{
-        background: midnightblue;
+        background: #131313;
         padding: 10px;
         text-align: center;
         color: white;
@@ -109,6 +211,11 @@
     }
     main{
         flex: 1 0 auto;
+    }
+    /*селектор дочернего элемента так как в main есть еще table, которые находятся на последующих уровнях вложенности*/
+    main > table{
+        margin: 0 auto;
+        width: auto;
     }
     #header-right{
         text-align: right;
@@ -124,23 +231,195 @@
         width: 50%;
 
     }
+    #coordinates-circle{
+        fill: orange;
+    }
     .svg-coordinates{
         margin: 50px;
         padding: 10px;
-        background: rgba(0, 0, 128, 0.3);
     }
-    .coordinate-line{
+    .coordinate-axis{
         stroke-width: 2px;
-        stroke: black;
+        stroke: #ffffff;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: draw-anim 3s linear forwards;
     }
     .coordinates-marker{
         stroke-width: 2px;
-        stroke: rgba(255, 255, 0, 0.75);
+        stroke: rgb(255, 255, 0);
+        stroke-dasharray: 10;
+        stroke-dashoffset: 10;
+        animation: draw-anim 1s linear forwards;
     }
     .coordinates-figure{
-        fill: rgba(139, 0, 0, 0.7);
-        stroke: rgba(0, 0, 139, 0.8);
+        fill: rgba(220, 20, 60, 0.8);
+        stroke: rgba(0, 0, 139, 0.9);
         stroke-width: 2px;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        fill-opacity: 0;
+        animation: draw-anim 2.5s linear forwards;
+        animation-delay: 1.2s;
+    }
+    .coordinates-arrow{
+        stroke: #ffffff;
+        stroke-width: 2px;
+        fill: #ffffff;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        fill-opacity: 0;
+        animation: draw-anim 2s linear forwards;
+    }
+    .coordinates-text{
+        fill-opacity: 0;
+        animation: draw-anim 1s linear forwards;
+        animation-delay: 1s;
+        fill: white;
+    }
+    /*селектор потомков*/
+    .input-table  td{
+        padding: 2% 0;
+        text-align: center;
+    }
+    .input-table{
+        margin-top: 10%;
+        margin-bottom: 10%;
+        width: 300px;
+        border-radius: 15px;
+        background: #181818;
+    }
+    .checkbox{
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+    .checkbox+label{
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        transition: 1s all ease-in-out;
+    }
+    .checkbox+label::before{
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        flex-shrink: 0;
+        flex-grow: 0;
+        border: 2px solid #adb5bd;
+        border-radius: 0.25em;
+        margin-right: 1em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+    }
+    .checkbox:checked+label::before {
+        border-color: var(--chekbox-checked);
+        background-color: var(--chekbox-checked);
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+        background-size: 0.75em;
+        transition: 1s all ease-in-out;
+    }
+    /*селекторы псевдоклассов*/
+    .checkbox:not(:checked)+label:hover::before {
+        border-color: var(--chekbox-checked);
+        transition: 1s all ease-in-out;
+    }
+    .checkbox:checked+label:hover::before {
+        border-color: var(--chekbox-uncheck);
+        transition: 1s all ease-in-out;
+    }
+    .checkbox:active:checked+label::before {
+        background-color: var(--chekbox-uncheck);
+        border-color: var(--chekbox-uncheck);
+        transition: 1s all ease-in-out;
+    }
+    .checkbox:active:not(:checked)+label::before {
+        border-color: var(--chekbox-checked);
+        background-color: var(--chekbox-checked);
+        transition: 1s all ease-in-out;
+    }
+    .input-tr td{
+        padding: 0 0 10% 0;
+    }
+    .text-field{
+        background: none;
+        border: none;
+        border-bottom: 2px solid #00b621;
+        color: white;
+        line-height: 2em;
+
+    }
+    .text-field:focus{
+        outline: none;
+    }
+    .text-field:focus::-webkit-input-placeholder{
+        transform: translateY(-10px);
+        font-size: xx-small;
+        transition: all 0.3s ease-in-out;
+    }
+
+    select{
+        cursor: pointer;
+    }
+
+    .combo-box{
+        width: 180px;
+        margin-bottom: 5%;
+        height: 30px;
+        outline: none;
+        border-radius: 5px;
+    }
+
+    .button{
+        color: white;
+        border: 2px solid var(--chekbox-checked);
+        width: 120px;
+        height: 30px;
+        transition: 1s all ease;
+        background: #090909;
+        border-radius: 5px;
+    }
+
+    button:focus{
+        outline: none;
+    }
+    button:hover{
+        background: var(--chekbox-checked);
+    }
+
+    .result-table{
+        table-layout: fixed;
+        width: 1000px;
+        border-spacing: 2px;
+        border: 2px solid white;
+        border-collapse: collapse;
+    }
+    .result-table th{
+        background: #090909;
+        height: 50px;
+        border: 1px solid white;
+    }
+    .result-table td{
+        height: 50px;
+        text-align: center;
+        background: #151515;
+        border: 1px solid white;
+    }
+
+    @keyframes draw-anim {
+        50%{
+            fill-opacity: 0.8;
+        }
+        80%{
+            fill-opacity: 0.9;
+        }
+        to{
+            fill-opacity: 1;
+            stroke-dashoffset: 0;
+        }
     }
 </style>
 </html>
