@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
+<html prefix="og: //ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
-    <title>Beloved PIP lab</title>
+
+    <meta property="og:title" content="First Web lab" />
+    <meta property="og:image" content="https://se.ifmo.ru/~s284718/web/lab1/assets/icon.png" />
+    <meta name="og:description" content="This is my first Web lab made with love">
+    <meta property="og:site_name" content="se.ifmo.ru">
+    <meta property="og:url" content="https://se.ifmo.ru/~s284718/web/lab1/">
+
+    <title>Beloved Web lab</title>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster&amp;display=swap" rel="stylesheet">
     <link rel="icon" href="assets/icon.png">
 </head>
 <body>
@@ -20,8 +29,8 @@
 
     <main>
         <table>
-            <tr>
-                <td>
+            <tr align="center">
+                <td align="right" width="25%">
                     <svg width="350" height="350" xmlns="http://www.w3.org/2000/svg" class="svg-coordinates">
                         <polygon points="175,175 175,245 315,175" class="coordinates-figure"/>
                         <path d="M175 175 35 175 A140 140 0 0 0 175 315z" class="coordinates-figure"></path>
@@ -59,14 +68,14 @@
                         <circle cx="-5" cy="-5" r="4" id="coordinates-circle" />
                     </svg>
                 </td>
-                <td>
-                    <form>
+                <td width="25%" align="left">
+                    <form id="checkForm">
                         <table class="input-table">
                             <tr>
                                 <td colspan="2">X value:</td>
                             </tr>
                             <tr class="input-tr">
-                                <td colspan="2"><input placeholder="X value" type="text" name="xTextField" class="text-field"></td>
+                                <td colspan="2"><input placeholder="X value" type="text" id="xField" class="text-field"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">Y value:</td>
@@ -76,43 +85,43 @@
                                     <table class="y-form-table">
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="-3">
+                                                <input type="checkbox" class="checkbox" id="-3" name="yCheckbox">
                                                 <label for="-3">-3</label>
                                             </td>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="-2">
+                                                <input type="checkbox" class="checkbox" id="-2" name="yCheckbox">
                                                 <label for="-2">-2</label>
                                             </td>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="-1">
+                                                <input type="checkbox" class="checkbox" id="-1" name="yCheckbox">
                                                 <label for="-1">-1</label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="0">
+                                                <input type="checkbox" class="checkbox" id="0" name="yCheckbox">
                                                 <label for="0">&nbsp0</label>
                                             </td>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="1">
+                                                <input type="checkbox" class="checkbox" id="1" name="yCheckbox">
                                                 <label for="1">&nbsp1</label>
                                             </td>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="2">
+                                                <input type="checkbox" class="checkbox" id="2" name="yCheckbox">
                                                 <label for="2">&nbsp2</label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="3">
+                                                <input type="checkbox" class="checkbox" id="3" name="yCheckbox">
                                                 <label for="3">&nbsp3</label>
                                             </td>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="4">
+                                                <input type="checkbox" class="checkbox" id="4" name="yCheckbox">
                                                 <label for="4">&nbsp4</label>
                                             </td>
                                             <td>
-                                                <input type="checkbox" name="yCheckbox" class="checkbox" id="5">
+                                                <input type="checkbox" class="checkbox" id="5" name="yCheckbox">
                                                 <label for="5">&nbsp5</label>
                                             </td>
                                         </tr>
@@ -124,7 +133,7 @@
                             </tr>
                             <tr class="input-tr">
                                 <td colspan="2">
-                                    <select name="rComboBox" class="combo-box">
+                                    <select name="rComboBox" class="combo-box" id="rSelect">
                                         <option>1</option>
                                         <option>1.5</option>
                                         <option>2</option>
@@ -133,9 +142,14 @@
                                     </select>
                                 </td>
                             </tr>
+                            <tr id="errors-text">
+                                <td>
+                                    sdfgasdg
+                                </td>
+                            </tr>
                             <tr>
-                                <td><button type="submit" class="button">Отправить</button></td>
-                                <td><button type="button" class="button">Очистить</button></td>
+                                <td><button type="submit" class="button" id="check">Check</button></td>
+                                <td><button type="button" class="button" id="clear">Clear</button></td>
                             </tr>
                         </table>
                     </form>
@@ -170,7 +184,6 @@
             </tr>
         </table>
     </footer>
-</body>
 
 <style>
     :root{
@@ -181,7 +194,7 @@
         height: 100%;
     }
     body{
-        font-family: Roboto;
+        font-family: Roboto, monospace;
         color: white;
         margin: 0;
         display: flex;
@@ -194,11 +207,16 @@
         border-spacing: 0;
     }
     header{
-        background: #131313;
+        font-family: Roboto, monospace;
         color: white;
         font-size: x-large;
         border-collapse: collapse;
         padding: 15px;
+        margin: 0;
+        background: #131313;
+    }
+    header table{
+        margin: 0;
     }
     footer{
         background: #131313;
@@ -212,11 +230,12 @@
     main{
         flex: 1 0 auto;
     }
-    /*селектор дочернего элемента так как в main есть еще table, которые находятся на последующих уровнях вложенности*/
+    /*селектор дочернего элемента. Нужен так как в main есть еще другие table, которые находятся на последующих уровнях вложенности*/
     main > table{
         margin: 0 auto;
         width: auto;
     }
+    /*несколько селекторов идентификаторов*/
     #header-right{
         text-align: right;
         width: 25%;
@@ -234,6 +253,11 @@
     #coordinates-circle{
         fill: orange;
     }
+    #errors-text > td{
+        color: crimson;
+        padding-bottom: 40px;
+    }
+
     .svg-coordinates{
         margin: 50px;
         padding: 10px;
@@ -278,16 +302,16 @@
         fill: white;
     }
     /*селектор потомков*/
-    .input-table  td{
-        padding: 2% 0;
+    .input-table td{
         text-align: center;
     }
     .input-table{
-        margin-top: 10%;
-        margin-bottom: 10%;
+        margin-top: 50px;
+        margin-bottom: 50px;
         width: 300px;
         border-radius: 15px;
         background: #181818;
+        padding: 30px 50px;
     }
     .checkbox{
         position: absolute;
@@ -310,7 +334,7 @@
         flex-grow: 0;
         border: 2px solid #adb5bd;
         border-radius: 0.25em;
-        margin-right: 1em;
+        margin-right: 30%;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 50% 50%;
@@ -350,7 +374,6 @@
         border-bottom: 2px solid #00b621;
         color: white;
         line-height: 2em;
-
     }
     .text-field:focus{
         outline: none;
@@ -381,18 +404,23 @@
         transition: 1s all ease;
         background: #090909;
         border-radius: 5px;
+        margin: 0 5px;
     }
 
-    button:focus{
+    .button:focus{
         outline: none;
     }
-    button:hover{
+    .button:hover{
         background: var(--chekbox-checked);
+    }
+    .button:active{
+        background: yellow;
     }
 
     .result-table{
         table-layout: fixed;
-        width: 1000px;
+        width: 70%;
+        margin: 0 15%;
         border-spacing: 2px;
         border: 2px solid white;
         border-collapse: collapse;
@@ -401,7 +429,9 @@
         background: #090909;
         height: 50px;
         border: 1px solid white;
+        width: 16.66%;
     }
+
     .result-table td{
         height: 50px;
         text-align: center;
@@ -422,4 +452,8 @@
         }
     }
 </style>
+
+    <script src="js/jQuery-3.5.1.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
