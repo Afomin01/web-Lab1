@@ -143,13 +143,10 @@
                                 </td>
                             </tr>
                             <tr id="errors-text">
-                                <td>
-                                    sdfgasdg
-                                </td>
                             </tr>
                             <tr>
                                 <td><button type="submit" class="button" id="check">Check</button></td>
-                                <td><button type="button" class="button" id="clear">Clear</button></td>
+                                <td><button type="button" class="button" id="clear">Clear table</button></td>
                             </tr>
                         </table>
                     </form>
@@ -157,12 +154,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <table class="result-table">
+                    <table class="result-table" id="results">
                         <tr>
                             <th>X</th>
                             <th>Y</th>
                             <th>R</th>
-                            <th>Current time</th>
+                            <th>Time</th>
                             <th>Execution time</th>
                             <th>Result</th>
                         </tr>
@@ -226,6 +223,7 @@
         font-size: medium;
         font-style: italic;
         flex-shrink: 0;
+        margin: 40px 0 0 0;
     }
     main{
         flex: 1 0 auto;
@@ -390,7 +388,7 @@
 
     .combo-box{
         width: 180px;
-        margin-bottom: 5%;
+        margin-bottom: 2%;
         height: 30px;
         outline: none;
         border-radius: 5px;
