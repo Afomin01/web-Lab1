@@ -105,6 +105,6 @@ $(function () {
         success: function (data) {
             $("#results tr:not(:first)").remove();
             $("#results").append(data);
-        },
+        }
     });
 })

@@ -22,7 +22,7 @@ foreach ($yValuesArray as $yValue){
     }else $result = "invalid";
 
 
-    $endMicroTime = round((microtime(true) - $startMicroTime)*1e6, 2)." μs";
+    $endMicroTime = round((microtime(true) - $startMicroTime)*1e6, 2)." ps";
 
     array_push($_SESSION['previous'], array($xValue,$yValue,$rValue,$startWorldTime,$endMicroTime,$result));
 
