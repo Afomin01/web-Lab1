@@ -97,4 +97,14 @@ $(function () {
     $("input[name='yCheckbox']").bind('change', function () {
         validate();
     })
+
+    $.ajax({
+        type: "POST",
+        url: "php/getPrevious.php",
+
+        success: function (data) {
+            $("#results tr:not(:first)").remove();
+            $("#results").append(data);
+        },
+    });
 })
