@@ -17,15 +17,13 @@
     <link rel="icon" href="assets/icon.png">
 </head>
 <body>
-    <header>
-        <table>
+        <table class="header">
             <tr>
                 <td id="header-left">Бакин Артем, P3213</td>
                 <td id="header-center"> Лабораторная №1 <br> <span style="color: greenyellow; font-style: italic;"> по Веб-программированию </span> </td>
                 <td id="header-right">Вариант: 2403</td>
             </tr>
         </table>
-    </header>
 
     <main>
         <table>
@@ -169,10 +167,7 @@
         </table>
     </main>
 
-
-
-    <footer>
-        <table>
+        <table class="footer">
             <tr>
                 <td> <a href="https://github.com/Afomin01/web-Lab1"><img src="assets/GitHub-Mark-Light-32px.png" alt="link to GitHub project"></a></td>
             </tr>
@@ -180,7 +175,6 @@
                 <td>Copyright © Artem Bakin 2020. All rights reserved (I suppose so).</td>
             </tr>
         </table>
-    </footer>
 
 <style>
     :root{
@@ -203,19 +197,20 @@
         padding: 0;
         border-spacing: 0;
     }
-    header{
+    .header{
         font-family: Roboto, monospace;
         color: white;
         font-size: x-large;
         border-collapse: collapse;
-        padding: 15px;
         margin: 0;
         background: #131313;
-    }
-    header table{
+        height: 70px;
         margin: 0;
     }
-    footer{
+    .header td{
+        padding: 15px;
+    }
+    .footer{
         background: #131313;
         padding: 10px;
         text-align: center;
@@ -224,6 +219,10 @@
         font-style: italic;
         flex-shrink: 0;
         margin: 40px 0 0 0;
+    }
+    .footer td{
+        text-align: center;
+        width: 100%;
     }
     main{
         flex: 1 0 auto;
