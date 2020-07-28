@@ -25,10 +25,9 @@
             </tr>
         </table>
 
-    <main>
-        <table>
-            <tr align="center">
-                <td align="right" width="25%">
+        <table class="main">
+            <tr>
+                <td>
                     <svg width="350" height="350" xmlns="http://www.w3.org/2000/svg" class="svg-coordinates">
                         <polygon points="175,175 175,245 315,175" class="coordinates-figure"/>
                         <path d="M175 175 35 175 A140 140 0 0 0 175 315z" class="coordinates-figure"></path>
@@ -66,7 +65,7 @@
                         <circle cx="-5" cy="-5" r="4" id="coordinates-circle" />
                     </svg>
                 </td>
-                <td width="25%" align="left">
+                <td>
                     <form id="checkForm">
                         <table class="input-table">
                             <tr>
@@ -165,7 +164,6 @@
                 </td>
             </tr>
         </table>
-    </main>
 
         <table class="footer">
             <tr>
@@ -204,7 +202,7 @@
         border-collapse: collapse;
         margin: 0;
         background: #131313;
-        height: 70px;
+        height: 75px;
         margin: 0;
     }
     .header td{
@@ -220,17 +218,22 @@
         flex-shrink: 0;
         margin: 40px 0 0 0;
     }
+    /*селектор потомков*/
     .footer td{
         text-align: center;
         width: 100%;
     }
-    main{
+    .main{
         flex: 1 0 auto;
-    }
-    /*селектор дочернего элемента. Нужен так как в main есть еще другие table, которые находятся на последующих уровнях вложенности*/
-    main > table{
         margin: 0 auto;
         width: auto;
+    }
+    /*селекторы дочерних элементов вместе с псевдоклассами дочерних элементов*/
+    .main > tbody > tr:first-child > td{
+        width: 25%;
+    }
+    .main > tbody > tr:first-child > td:first-child{
+        text-align: right;
     }
     /*несколько селекторов идентификаторов*/
     #header-right{
@@ -250,6 +253,7 @@
     #coordinates-circle{
         fill: orange;
     }
+    /*селектор дочерних элементов*/
     #errors-text > td{
         color: crimson;
         padding-bottom: 40px;
@@ -362,6 +366,7 @@
         background-color: var(--chekbox-checked);
         transition: 1s all ease-in-out;
     }
+    /*селектор потомков*/
     .input-tr td{
         padding: 0 0 10% 0;
     }
@@ -422,6 +427,7 @@
         border: 2px solid white;
         border-collapse: collapse;
     }
+    /*селектор потомков*/
     .result-table th{
         background: #090909;
         height: 50px;
@@ -429,6 +435,7 @@
         width: 16.66%;
     }
 
+    /*селектор потомков*/
     .result-table td{
         height: 50px;
         text-align: center;
@@ -452,5 +459,6 @@
 
     <script src="js/jQuery-3.5.1.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 </html>
