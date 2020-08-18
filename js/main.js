@@ -83,7 +83,21 @@ function clear(){
     });
 }
 
+function changeR(){
+    $('#Ry').html(parseFloat(getR()));
+    $('#-Ry').html(-parseFloat(getR()));
+    $('#R2y').html(parseFloat(getR())/2);
+    $('#-R2y').html(-parseFloat(getR())/2);
+
+    $('#Rx').html(parseFloat(getR()));
+    $('#-Rx').html(-parseFloat(getR()));
+    $('#R2x').html(parseFloat(getR())/2);
+    $('#-R2x').html(-parseFloat(getR())/2);
+}
+
 $(function () {
+    changeR();
+
     $('#clear').bind('click',function () {
         clear();
     });
@@ -96,6 +110,9 @@ $(function () {
     })
     $("input[name='yCheckbox']").bind('change', function () {
         validate();
+    })
+    $('#rSelect').change(function () {
+        changeR();
     })
 
     $.ajax({
