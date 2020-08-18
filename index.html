@@ -17,8 +17,8 @@
     <link href="assets/icon.png" rel="icon">
 </head>
 <body>
-<table class="main">
-    <thead>
+<table class="main-table">
+    <thead class="main-table-header">
     <tr>
         <td id="header-left">Бакин Артем, P3213</td>
         <td colspan="2" id="header-center"> Лабораторная №1 <br> <span style="color: greenyellow; font-style: italic; text-align: center;"> по Веб-программированию </span>
@@ -168,16 +168,6 @@
         </td>
     </tr>
     </tbody>
-
-<!--    <tfoot>
-    <tr>
-        <td colspan="4"><a href="https://github.com/Afomin01/web-Lab1"><img alt="link to GitHub project" src="assets/GitHub-Mark-Light-32px.png"></a>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="4">Copyright © Artem Bakin 2020. All rights reserved (I suppose so).</td>
-    </tr>
-    </tfoot>-->
 </table>
 
 <table class="footer">
@@ -189,15 +179,21 @@
         --chekbox-uncheck: #ff0000;
     }
 
+    /*для гарантированного выполнения ТЗ по применению каскадирования*/
+    span{
+        color: red;
+    }
+
     html, body {
         height: 100%;
     }
 
+    /*наследование: весь текст в тегах, вложенных в body будет такой как описано, если не указано иное*/
     body {
         font-family: Roboto, monospace;
+        font-size: medium;
         color: white;
         margin: 0;
-        flex-direction: column;
         background: #212121;
     }
 
@@ -206,10 +202,11 @@
         padding: 0;
         border-spacing: 0;
         height: auto;
+
     }
 
-    /*селектор дочерних элементов*/
-    .main > thead {
+    /*явное задание шрифта*/
+    .main-table-header {
         font-family: Roboto, monospace;
         color: white;
         font-size: x-large;
@@ -219,42 +216,18 @@
         height: 75px;
     }
 
-    /*селектор дочерних элементов*/
-    .main > thead td {
+    /*селектор потомков*/
+    .main-table-header td {
         padding: 15px;
     }
 
-    /*селектор дочерних элементов*/
-    .main > tfoot {
-        background: #131313;
-        padding: 10px;
-        text-align: center;
-        color: white;
-        font-size: medium;
-        font-style: italic;
-        vertical-align: bottom;
-    }
-
-    /*селектор дочерних элементов*/
-    .main > tfoot td {
-        text-align: center;
-        width: 100%;
-        padding: 5px 0 0 0;
-        vert-align: bottom;
-        vertical-align: bottom;
-    }
-
-    .main {
-        margin: 0 auto;
+    .main-table {
+        margin: 0 0 50px 0;
         width: auto;
     }
 
-    /*селекторы дочерних элементов вместе с псевдоклассами дочерних элементов*/
-    .main > tbody > tr:first-child > td {
-
-    }
-
-    .main > tbody > tr:first-child > td:first-child {
+    /*больше селекторов дочерних элементов!*/
+    .main-table > tbody > tr:first-child > td:first-child {
         text-align: right;
     }
 
@@ -275,7 +248,6 @@
         width: 50%;
     }
 
-    /*селектор дочерних элементов*/
     #errors-text > td {
         color: crimson;
         padding-bottom: 40px;
