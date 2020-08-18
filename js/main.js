@@ -23,11 +23,11 @@ function validate(suppresErr=false){
     $('#errors-text').children().remove();
 
     if(isNaN(getX())) {
-        if(!suppresErr) $("#errors-text").append($("<td colspan='2'>X must be a number from -5 to 3</td>"))
+        if(!suppresErr) $("#errors-text").append($("<td colspan='2'>X must be a number (-5;3)</td>"))
         return false;
     }
-    if (parseFloat(getX()) > 3 || parseFloat(getX()) < -5 ) {
-        if(!suppresErr) $("#errors-text").append($("<td colspan='2'>X must be a number from -5 to 3</td>"))
+    if (parseFloat(getX()) >= 3 || parseFloat(getX()) <= -5 ) {
+        if(!suppresErr) $("#errors-text").append($("<td colspan='2'>X must be number (-5;3)</td>"))
         return false;
     }
 
@@ -46,7 +46,7 @@ function sendCheckRequest(){
         $.ajax({
             type: "POST",
             url: "php/check.php",
-            data: {x: getX(), y: getSelectedYArray(), r: getR()},
+            data: {x: parseFloat(getX()), y: getSelectedYArray(), r: getR()},
 
             success: function (data) {
                 $("#results tr:not(:first)").remove();
