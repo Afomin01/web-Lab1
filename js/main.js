@@ -83,7 +83,7 @@ function clear(){
     });
 }
 
-function changeR(){
+function changeGraphRValue(){
     $('#Ry').html(parseFloat(getR()));
     $('#-Ry').html(-parseFloat(getR()));
     $('#R2y').html(parseFloat(getR())/2);
@@ -95,8 +95,28 @@ function changeR(){
     $('#-R2x').html(-parseFloat(getR())/2);
 }
 
+function setDots(){
+
+    $('#graph > circle').remove();
+    if(getX()!=="null"){
+        let x = parseFloat(getX());
+        let r = parseFloat(getR());
+        let svg = document.getElementById('graph');
+        for(let i of getSelectedYArray()){
+            let circleElement = document.createElementNS("http://www.w3.org/2000/svg", 'circle' );
+            circleElement.style.fill = "yellow";
+            circleElement.setAttribute("r", "4");
+            circleElement.setAttribute("cx", 175 + (x / r) * 140);
+            circleElement.setAttribute("cy", 175 - (i / r) * 140);
+            svg.append(circleElement);
+        }
+    }
+
+
+}
+
 $(function () {
-    changeR();
+    changeGraphRValue();
 
     $('#clear').bind('click',function () {
         clear();
@@ -107,12 +127,15 @@ $(function () {
     });
     $('#xField').bind('change', function () {
         validate();
+        setDots();
     })
     $("input[name='yCheckbox']").bind('change', function () {
         validate();
+        setDots();
     })
     $('#rSelect').change(function () {
-        changeR();
+        changeGraphRValue();
+        setDots();
     })
 
     $.ajax({
