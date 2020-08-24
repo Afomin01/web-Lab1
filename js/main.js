@@ -3,7 +3,7 @@ function getR() {
 }
 
 function getX() {
-    let xValue = $('#xField').val();
+    let xValue = $('#xField').val().replace(/\s/g,'').replace(',','.');
 
     if(xValue==="") xValue="null";
     return xValue;
@@ -41,26 +41,33 @@ function validate(suppresErr=false){
 
 function sendCheckRequest(){
     let isValid = validate();
+    let parseConfirmed = true;
     if(isValid===true){
+        if(String(parseFloat(getX())) !== getX()) {
+            let parseErrorConfirm = confirm("Your X value precision is too high, so it is recommended to reduce the precision. X value will be rounded to " + parseFloat(getX()) +".\n Would you like to send request with this rounded value?");
+            if(!parseErrorConfirm) parseConfirmed=false;
+        }
 
-        $.ajax({
-            type: "POST",
-            url: "php/check.php",
-            data: {x: parseFloat(getX()), y: getSelectedYArray(), r: getR()},
+        if(parseConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: "php/check.php",
+                data: {x: parseFloat(getX()), y: getSelectedYArray(), r: getR()},
 
-            success: function (data) {
-                $("#results tr:not(:first)").remove();
-                $("#results").append(data);
-            },
+                success: function (data) {
+                    $("#results tr:not(:first)").remove();
+                    $("#results").append(data);
+                },
 
-            error:function (xhr,status,error) {
-                alert("Server error: "+xhr.responseText);
-            },
+                error: function (xhr, status, error) {
+                    alert("Server error: " + xhr.responseText);
+                },
 
-            timeout:function () {
-                alert("Timeout reached");
-            }
-        });
+                timeout: function () {
+                    alert("Timeout reached");
+                }
+            });
+        }
     }
 }
 
