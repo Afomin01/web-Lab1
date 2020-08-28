@@ -43,7 +43,7 @@ function sendCheckRequest(){
     let isValid = validate();
     let parseConfirmed = true;
     if(isValid===true){
-        if(String(parseFloat(getX())) !== getX()) {
+        if((String(parseFloat(getX())) !== getX()) && (parseFloat(getX()).toExponential() !== getX()) && (parseFloat(getX()).toExponential().replace('+','') !== getX())) {
             let parseErrorConfirm = confirm("Your X value precision is too high, so it is recommended to reduce the precision. X value will be rounded to " + parseFloat(getX()) +".\n Would you like to send request with this rounded value?");
             if(!parseErrorConfirm) parseConfirmed=false;
         }
